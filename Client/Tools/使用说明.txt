@@ -1,0 +1,2 @@
+1、需要安装Python2.7
+2、编译ProtoBuf3.5.1_Python：命令行执行 python setup.py install

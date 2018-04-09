@@ -1,0 +1,77 @@
+import "protocol_base.proto";
+
+//message ToPlyCmd {
+//	optional string PlyId = 1;
+//	optional SimpleCmd cmd = 2;
+//}
+
+message pro_posWorld{
+	optional int32	x = 1;
+	optional int32	y = 2;
+	optional int32	z = 3;
+}
+
+//道具基本信息
+message pro_PropBase{
+        optional int32 id = 1;//模板id
+        optional int32 num = 2;
+        optional int32 endurance = 3;//耐久度
+}
+//道具在[背包/箱子]的位置信息
+message pro_PropIndex{
+        optional int32 type = 1;//BaseBackpackType
+        optional int32 index = 2;//位置索引
+        optional int32 id = 3;////背包id, 箱子id或熔炉的id
+}
+
+message Prop{ 
+        optional pro_PropIndex pos = 1;
+        optional pro_PropBase Base = 2;
+}
+
+//掉落一项的物品
+message pro_DropItem{
+	optional int32 dropId = 1;
+	optional pro_posWorld pos = 2;
+	optional pro_PropBase item = 3;
+}
+//掉落多项物品
+message pro_mulDropItem{
+	repeated pro_DropItem items = 1;
+}
+
+message pro_mulProp{
+	repeated Prop items = 1;
+}
+//箱子，熔炉，烹饪锅
+message BoxInfo{
+	optional int32 id = 1;//箱子，熔炉，烹饪锅 id
+    optional int32 type = 2;//箱子类型, BaseBackpackType
+    optional int32 cid = 3;//合成id [熔炉，烹饪锅, 合成后的ID]
+    optional int32 v = 4;//本次合成剩余的时间
+    optional int32 maxV = 5;//本次合成总共使用的时间
+    optional int32 remainTime = 6;//剩余燃烧时间
+    optional int32 maxh = 7;//总共燃烧的时间
+    optional int32 owner = 8;//主人id
+}
+
+//合成item info
+message comboItemInfo{
+	optional int32 id = 1;
+    optional int32 pos = 2;//背包中的位置
+}
+//九宫格合成
+message comboItemProto{
+	optional pro_PropBase prop = 1;
+	optional int32 put_pos = 2;//存放到背包/任务栏 的位置
+	repeated comboItemInfo items = 3;//九宫格
+}
+
+//道具移动
+message PropMove{
+	optional pro_PropIndex p1 = 1;
+	optional pro_PropIndex p2 = 2;
+	optional int32 count = 3;
+	optional string pswd = 4;
+};
+
