@@ -1,0 +1,14 @@
+﻿local speed = 10
+local lightCpnt = nil
+
+function start()
+	print("test panel start")
+end
+
+function update()
+	--print("lua update")
+end
+
+function ondestroy()
+	--print("lua destroy")
+end

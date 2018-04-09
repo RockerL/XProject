@@ -2,19 +2,25 @@
 local lightCpnt = nil
 
 function start()
-	print("lua start...")
+	print("main lua start...")
 	
+	--testJson()
+
+	--testProto()
+
+	local canvas = CS.UnityEngine.GameObject.Find("Canvas")
+
+	local prefab = CS.U3DUtility.ResManager.Singleton:LoadAsset("Prefabs/UI/UITestPanel", typeof(CS.UnityEngine.GameObject));
+	CS.UnityEngine.GameObject.Instantiate(prefab, canvas.transform)
+end
+
+function testJson()
 	local rapidjson = require('rapidjson')
 	local t = rapidjson.decode('{"a":123}')
 	print(t.a)
 	t.a = 456
 	local s = rapidjson.encode(t)
 	print('json', s)
-
-	testProto()
-
-	--local prefab = CS.U3DUtility.ResManager.Singleton:LoadAsset("Prefabs/UI/登录框架", typeof(CS.UnityEngine.GameObject));
-	--CS.UnityEngine.GameObject.Instantiate(prefab, self.transform)
 end
 
 require "Proto.protocol_cs_pb"
@@ -37,10 +43,6 @@ function update()
 	--lightCpnt.color = CS.UnityEngine.Color(CS.UnityEngine.Mathf.Sin(CS.UnityEngine.Time.time) / 2 + 0.5, 0, 0, 1)
 end
 
-function test()
-	print("test is called")
-end
-
 function ondestroy()
-    print("lua destroy")
+    --print("lua destroy")
 end
