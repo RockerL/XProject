@@ -124,6 +124,62 @@ namespace XLua
 #endif
 		}
         
+		public void __Gen_Delegate_Imp4(bool p0, string p1)
+		{
+#if THREAD_SAFE || HOTFIX_ENABLE
+            lock (luaEnv.luaEnvLock)
+            {
+#endif
+                RealStatePtr L = luaEnv.rawL;
+                int err_func =LuaAPI.load_error_func(L, errorFuncRef);
+                
+                
+                LuaAPI.lua_getref(L, luaReference);
+                
+                LuaAPI.lua_pushboolean(L, p0);
+                LuaAPI.lua_pushstring(L, p1);
+                
+                int __gen_error = LuaAPI.lua_pcall(L, 2, 0, err_func);
+                if (__gen_error != 0)
+                    luaEnv.ThrowExceptionFromError(err_func - 1);
+                
+                
+                
+                LuaAPI.lua_settop(L, err_func - 1);
+                
+#if THREAD_SAFE || HOTFIX_ENABLE
+            }
+#endif
+		}
+        
+		public void __Gen_Delegate_Imp5(int p0, byte[] p1)
+		{
+#if THREAD_SAFE || HOTFIX_ENABLE
+            lock (luaEnv.luaEnvLock)
+            {
+#endif
+                RealStatePtr L = luaEnv.rawL;
+                int err_func =LuaAPI.load_error_func(L, errorFuncRef);
+                
+                
+                LuaAPI.lua_getref(L, luaReference);
+                
+                LuaAPI.xlua_pushinteger(L, p0);
+                LuaAPI.lua_pushstring(L, p1);
+                
+                int __gen_error = LuaAPI.lua_pcall(L, 2, 0, err_func);
+                if (__gen_error != 0)
+                    luaEnv.ThrowExceptionFromError(err_func - 1);
+                
+                
+                
+                LuaAPI.lua_settop(L, err_func - 1);
+                
+#if THREAD_SAFE || HOTFIX_ENABLE
+            }
+#endif
+		}
+        
         
 		static DelegateBridge()
 		{
@@ -153,9 +209,24 @@ namespace XLua
 			    return new System.Action<string>(__Gen_Delegate_Imp2);
 			}
 		
+		    if (type == typeof(U3DUtility.TcpLayer.OnDisconnectEvent))
+			{
+			    return new U3DUtility.TcpLayer.OnDisconnectEvent(__Gen_Delegate_Imp2);
+			}
+		
 		    if (type == typeof(System.Action<double>))
 			{
 			    return new System.Action<double>(__Gen_Delegate_Imp3);
+			}
+		
+		    if (type == typeof(U3DUtility.TcpLayer.OnConnectEvent))
+			{
+			    return new U3DUtility.TcpLayer.OnConnectEvent(__Gen_Delegate_Imp4);
+			}
+		
+		    if (type == typeof(U3DUtility.TcpLayer.OnRecvEvent))
+			{
+			    return new U3DUtility.TcpLayer.OnRecvEvent(__Gen_Delegate_Imp5);
 			}
 		
 		    return null;

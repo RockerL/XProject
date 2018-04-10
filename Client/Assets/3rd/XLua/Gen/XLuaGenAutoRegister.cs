@@ -81,6 +81,8 @@ namespace XLua.CSObjectWrap
 				
 				translator.DelayWrapLoader(typeof(U3DUtility.ResManager), U3DUtilityResManagerWrap.__Register);
 				
+				translator.DelayWrapLoader(typeof(U3DUtility.TcpLayer), U3DUtilityTcpLayerWrap.__Register);
+				
 				translator.DelayWrapLoader(typeof(LuaBehaviour), LuaBehaviourWrap.__Register);
 				
 				

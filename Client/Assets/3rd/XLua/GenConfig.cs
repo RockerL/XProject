@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using XLua;
+using U3DUtility;
 
 //配置的详细介绍请看Doc下《XLua的配置.doc》
 public static class GenConfig
@@ -48,6 +49,7 @@ public static class GenConfig
                 typeof(Action<string>),
                 typeof(UnityEngine.Debug),
                 typeof(U3DUtility.ResManager),
+                typeof(TcpLayer)
             };
 
     //C#静态调用Lua的配置（包括事件的原型），仅可以配delegate，interface
@@ -58,7 +60,10 @@ public static class GenConfig
                 typeof(Action<string>),
                 typeof(Action<double>),
                 typeof(UnityEngine.Events.UnityAction),
-                typeof(System.Collections.IEnumerator)
+                typeof(System.Collections.IEnumerator),
+                typeof(TcpLayer.OnConnectEvent),
+                typeof(TcpLayer.OnDisconnectEvent),
+                typeof(TcpLayer.OnRecvEvent)
             };
 
     //黑名单

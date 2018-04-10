@@ -41,6 +41,7 @@
 
 	<assembly fullname="U3DUtility">
 	    <type fullname="U3DUtility.ResManager" preserve="all"/>
+		<type fullname="U3DUtility.TcpLayer" preserve="all"/>
 		
 	</assembly>
 
