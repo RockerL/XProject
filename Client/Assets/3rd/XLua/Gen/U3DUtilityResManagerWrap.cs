@@ -21,12 +21,11 @@ namespace XLua.CSObjectWrap
         {
 			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
 			System.Type type = typeof(U3DUtility.ResManager);
-			Utils.BeginObjectRegister(type, L, translator, 0, 4, 0, 0);
+			Utils.BeginObjectRegister(type, L, translator, 0, 3, 0, 0);
 			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetLuaBytes", _m_GetLuaBytes);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "LoadAsset", _m_LoadAsset);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "CleanAllAsset", _m_CleanAllAsset);
-			Utils.RegisterFunc(L, Utils.METHOD_IDX, "LoadAssetBundle", _m_LoadAssetBundle);
 			
 			
 			
@@ -154,35 +153,6 @@ namespace XLua.CSObjectWrap
                     
                     
                     return 0;
-                }
-                
-            } catch(System.Exception __gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
-            }
-            
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _m_LoadAssetBundle(RealStatePtr L)
-        {
-		    try {
-            
-                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-                U3DUtility.ResManager __cl_gen_to_be_invoked = (U3DUtility.ResManager)translator.FastGetCSObj(L, 1);
-            
-            
-                
-                {
-                    string assetBundleName = LuaAPI.lua_tostring(L, 2);
-                    
-                        UnityEngine.AssetBundle __cl_gen_ret = __cl_gen_to_be_invoked.LoadAssetBundle( assetBundleName );
-                        translator.Push(L, __cl_gen_ret);
-                    
-                    
-                    
-                    return 1;
                 }
                 
             } catch(System.Exception __gen_e) {
