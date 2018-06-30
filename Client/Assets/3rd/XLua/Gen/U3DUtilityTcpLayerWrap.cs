@@ -44,7 +44,7 @@ namespace XLua.CSObjectWrap
             Utils.RegisterObject(L, translator, Utils.CLS_IDX, "PACK_HEAD_SIZE", U3DUtility.TcpLayer.PACK_HEAD_SIZE);
             Utils.RegisterObject(L, translator, Utils.CLS_IDX, "MSG_ID_SIZE", U3DUtility.TcpLayer.MSG_ID_SIZE);
             
-			Utils.RegisterFunc(L, Utils.CLS_GETTER_IDX, "Singleton", _g_get_Singleton);
+			Utils.RegisterFunc(L, Utils.CLS_GETTER_IDX, "singleton", _g_get_singleton);
             
 			
 			
@@ -286,11 +286,11 @@ namespace XLua.CSObjectWrap
         
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int _g_get_Singleton(RealStatePtr L)
+        static int _g_get_singleton(RealStatePtr L)
         {
 		    try {
                 ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-			    translator.Push(L, U3DUtility.TcpLayer.Singleton);
+			    translator.Push(L, U3DUtility.TcpLayer.singleton);
             } catch(System.Exception __gen_e) {
                 return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
             }

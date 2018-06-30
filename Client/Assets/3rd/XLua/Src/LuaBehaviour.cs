@@ -45,7 +45,7 @@ public class LuaBehaviour : MonoBehaviour
 
         luaEnv.AddLoader((ref string fileName) =>
         {
-            return U3DUtility.ResManager.Singleton.GetLuaBytes(fileName);
+            return U3DUtility.ResManager.singleton.GetLuaBytes(fileName);
         });
 
         isAddLoader = true;
@@ -70,7 +70,7 @@ public class LuaBehaviour : MonoBehaviour
 
         if (!string.IsNullOrEmpty(luaScript))
         {
-            byte[] buff = U3DUtility.ResManager.Singleton.GetLuaBytes(luaScript);
+            byte[] buff = U3DUtility.ResManager.singleton.GetLuaBytes(luaScript);
             luaEnv.DoString(buff, "LuaBehaviour", scriptEnv);
         }
 
