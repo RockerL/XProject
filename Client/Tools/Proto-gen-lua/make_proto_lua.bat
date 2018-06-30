@@ -5,9 +5,9 @@ protoc.exe --lua_out=./lua/ --plugin=protoc-gen-lua="build.bat" %%i
 )  
 echo end  
 
-del ..\..\Assets\Lua\ProtoGen\*.lua /q
-del ..\..\Assets\Lua\ProtoGen\*.txt /q
-xcopy lua\*.lua ..\..\Assets\Lua\ProtoGen /s /e /y  
-ren ..\..\Assets\Lua\ProtoGen\*.lua *.lua.txt
+del ..\..\Assets\Lua\Proto\*.lua /q
+del ..\..\Assets\Lua\Proto\*.txt /q
+xcopy lua\*.lua ..\..\Assets\Lua\Proto /s /e /y  
+ren ..\..\Assets\Lua\Proto\*.lua *.lua.txt
 
 pause

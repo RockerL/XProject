@@ -14,8 +14,6 @@ google/protobuf/duration_pb2.py
 google/protobuf/empty_pb2.py
 google/protobuf/field_mask_pb2.py
 google/protobuf/json_format.py
-google/protobuf/map_proto2_unittest_pb2.py
-google/protobuf/map_unittest_pb2.py
 google/protobuf/message.py
 google/protobuf/message_factory.py
 google/protobuf/proto_builder.py
