@@ -1,16 +1,17 @@
 ﻿local speed = 10
 local lightCpnt = nil
+local ResManager = CS.U3DUtility.ResManager.singleton
 
 function start()
 	print("main lua start...")
 	
 	--testJson()
 
-	--testProto()
+	testProto()
 
 	local canvas = CS.UnityEngine.GameObject.Find("Canvas")
 
-	local prefab = CS.U3DUtility.ResManager.Singleton:LoadAsset("Prefabs/UI/UITestPanel", typeof(CS.UnityEngine.GameObject));
+	local prefab = ResManager:LoadAsset("Prefabs/UI/UITestPanel", typeof(CS.UnityEngine.GameObject));
 	CS.UnityEngine.GameObject.Instantiate(prefab, canvas.transform)
 end
 
